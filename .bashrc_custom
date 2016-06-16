@@ -1,1 +1,35 @@
+shrug() { echo -n "¯\_(ツ)_/¯" | pbcopy ;
+echo "¯\_(ツ)_/¯ copied to your clipboard"; }
 
+# bunch of git stuff
+function parse_git_branch () {
+       git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
+
+PS1="$GREEN\u@local$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+
+PATH=${PATH}:/Library/PostgreSQL/9.4/bin
+
+export EDITOR="/usr/bin/emacs"
+
+
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+# added by travis gem
+[ -f /Users/tim/.travis/travis.sh ] && source /Users/tim/.travis/travis.sh
