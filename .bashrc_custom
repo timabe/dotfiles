@@ -12,12 +12,9 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
 
-PS1="$GREEN\u@local$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+PS1="$GREEN\u$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
 PATH=${PATH}:/Library/PostgreSQL/9.4/bin
-
-export EDITOR="/usr/bin/emacs"
-
 
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 # enable color support of ls and also add handy aliases
