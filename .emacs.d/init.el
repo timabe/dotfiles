@@ -28,7 +28,6 @@
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
 
-(normal-erase-is-backspace-mode 0)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
