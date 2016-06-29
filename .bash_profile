@@ -63,3 +63,6 @@ export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
+
+# added by Anaconda2 4.0.0 installer
+export PATH="/Users/tim/anaconda2/bin:$PATH"
