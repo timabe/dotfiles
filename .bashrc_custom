@@ -28,3 +28,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 # added by travis gem
 [ -f /Users/tim/.travis/travis.sh ] && source /Users/tim/.travis/travis.sh
+
+# for aws cli autocomplete
+complete -C '/usr/local/bin/aws_completer' aws
+export PATH=/usr/local/aws/bin:$PATH
