@@ -1,7 +1,17 @@
 filter <- dplyr::filter
 
 .First <- function() {
-  pkgs <- c('ggplot2', 'dplyr', 'tidyr', 'lubridate', 'datatools', 'scales', 'readr','cowsay')
+  pkgs <- c(
+  'ggplot2'
+  , 'dplyr'
+  , 'tidyr'
+  , 'lubridate'
+  , 'datatools'
+  , 'scales'
+  , 'readr'
+  , 'cowsay'
+  , 'stringr'
+  , 'purrr')
   invisible(lapply(pkgs, function(x) suppressMessages(require(x, quietly = T, character.only = T) )) )
   cowsay::say('fortune', by = 'cow')
 }
