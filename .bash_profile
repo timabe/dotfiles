@@ -65,6 +65,12 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/heroku/bin:$PATH # Heroku: https://toolbelt.heroku.com/standalone
 
 # added by Anaconda2 4.0.0 installer
-export PATH="/Users/tim/anaconda2/bin:$PATH"
+# export PATH="/Users/tim/anaconda2/bin:$PATH"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tim/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/tim/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tim/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/tim/Downloads/google-cloud-sdk/completion.bash.inc'; fi
