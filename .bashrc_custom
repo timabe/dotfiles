@@ -9,10 +9,17 @@ function parse_git_branch () {
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
+ORANGE="\[\033[38;5;9m\]"
+GREEN="\[\033[38;5;2m\]"
 CYAN="\[\033[0;36m\]"
 NO_COLOUR="\[\033[0m\]"
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  PS1="$ORANGE\u$NO_COLOUR:\w$GREEN\$(parse_git_branch)$NO_COLOUR\$ "
+else
+  PS1="$CYAN\u$NO_COLOUR:\w$RED\$(parse_git_branch)$NO_COLOUR\$ "
+fi
 
-PS1="$CYAN\u$NO_COLOUR:\w$RED\$(parse_git_branch)$NO_COLOUR\$ "
 exists() { type -t "$1" > /dev/null 2>&1; }
 
 if exists brew; then
