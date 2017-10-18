@@ -1,6 +1,3 @@
-shrug() { echo -n "¯\_(ツ)_/¯" | pbcopy ;
-echo "¯\_(ツ)_/¯ copied to your clipboard"; }
-
 # bunch of git stuff
 function parse_git_branch () {
        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -14,6 +11,7 @@ GREEN="\[\033[38;5;2m\]"
 CYAN="\[\033[0;36m\]"
 NO_COLOUR="\[\033[0m\]"
 unamestr=`uname`
+# pick a different color if you're on a linux versus unix machine
 if [[ "$unamestr" == 'Linux' ]]; then
   PS1="$ORANGE\u$NO_COLOUR:\w$GREEN\$(parse_git_branch)$NO_COLOUR\$ "
 else

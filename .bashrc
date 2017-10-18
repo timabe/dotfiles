@@ -107,8 +107,11 @@ if [ "$PS1" ]; then
 		fi
 		;;
 	*)
-		[ -e /etc/sysconfig/bash-prompt-default ] && PROMPT_COMMAND=/etc/sysconfig/bash-prompt-default
-
+		if [ -e /etc/sysconfig/bash-prompt-default ]; then
+            PROMPT_COMMAND=/etc/sysconfig/bash-prompt-default
+        else
+            PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}\007"'
+        fi
 	    ;;
     esac
 
