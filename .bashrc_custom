@@ -20,3 +20,19 @@ fi
 
 exists() { type -t "$1" > /dev/null 2>&1; }
 
+export my_id=4121113; 
+
+function silver () { # takes an argument (default is 1) for which machine to go into
+	 ssh gw${1-1}.silver.musta.ch
+}
+
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
+
+# afdev
+export DATA_DIR=$HOME/repos/data
+export AFDEV_HOST="i-087bf02de0dc4d286.inst.aws.airbnb.com"
+export AFDEV_PORT=54442
+export AFDEV_USER="tim_abraham"
+
+# use version of emacs from brew cask install 
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"

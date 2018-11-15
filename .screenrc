@@ -26,6 +26,7 @@ vbell                 off             # default: ???
 escape	"^Tt"                         # ctrl-A default interferes with emacs keybindings for terminal
 defutf8 on                            # unicode by default
 defscrollback         10000           # default: 100
+termcapinfo xterm* ti@:te@            # mouse scrollback
 silencewait           15              # default: 30
 activity              "activity in %n (%t) [%w:%s]~"
 bell                  "bell     in %n (%t) [%w:%s]~"
@@ -79,14 +80,14 @@ bind 'b' focus bottom
 #      Set the colors for the "messages" and "text marking"
 #      Example: "+b kG" = blue screen, black text, green background. Change
 #      to "+b kR" and so on to distinguish machines.
-sorendition "+b kG"   
+sorendition "+b kR"   
 
 # 2.2) hardstatus = navigation bar @ bottom
 hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"  
 
-# 2.3) Autoload two screen tabs for emacs/bash.
-screen -t emacs 0
-screen -t bash 1
+# 2.3) Autoload two screen tabs.
+screen -t bash 0
+screen -t hive 1
 
 # 2.4) Description of the keywords used in hardstatus
 # caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
