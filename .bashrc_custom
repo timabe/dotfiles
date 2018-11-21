@@ -26,6 +26,10 @@ function silver () { # takes an argument (default is 1) for which machine to go 
 	 ssh gw${1-1}.silver.musta.ch
 }
 
+function gold () { # takes an argument (default is 1) for which machine to go into
+	 ssh gw${1-1}.gold.musta.ch
+}
+
 export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # afdev
