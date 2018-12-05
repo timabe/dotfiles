@@ -20,6 +20,10 @@ fi
 
 ln -s dotfiles/.bashrc .
 
+if [ -f .bashrc_custom ]; then
+	mv .bashrc_custom .bashrc_custom~
+fi
+
 ln -s dotfiles/.bashrc_custom .
 
 if [ -f .emacs.d ]; then

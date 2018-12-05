@@ -89,9 +89,6 @@
 # See: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 shopt -s histappend
 
-# Make prompt informative
-# See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
-PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
 
 ## -----------------------
 ## -- 2) Set up aliases --
@@ -137,6 +134,10 @@ export LC_ALL=POSIX
 ## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------
-
+# afdev
+export DATA_DIR=$HOME/repos/data
+export AFDEV_HOST="i-087bf02de0dc4d286.inst.aws.airbnb.com"
+export AFDEV_PORT=54442
+export AFDEV_USER="tim_abraham"
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
