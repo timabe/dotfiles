@@ -134,10 +134,9 @@ export LC_ALL=POSIX
 ## ------------------------------
 ## -- 3) User-customized code  --
 ## ------------------------------
-# afdev
-export DATA_DIR=$HOME/repos/data
-export AFDEV_HOST="i-087bf02de0dc4d286.inst.aws.airbnb.com"
-export AFDEV_PORT=54442
-export AFDEV_USER="tim_abraham"
 ## Define any user-specific variables you want here.
 source ~/.bashrc_custom
+## Plus variables that we need for Airbnb but might not want to keep in version control
+if [ -f ~/.airbnb_vars ]; then
+    source ~/.airbnb_vars
+fi

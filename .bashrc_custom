@@ -41,6 +41,7 @@ function gold () { # takes an argument (default is 1) for which machine to go in
 export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 
-
 # use version of emacs from brew cask install 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+
+alias airplus="cd ~/repos/data/airflow/teams/plus/"
