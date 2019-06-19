@@ -26,8 +26,6 @@ fi
 
 exists() { type -t "$1" > /dev/null 2>&1; }
 
-export my_id=4121113; 
-
 function silver () { # takes an argument (default is 1) for which machine to go into
 	export LC_CLUSTER=silver; # helpful to keep track of which cluster you're doing work on
 	ssh -o SendEnv=LC_CLUSTER gw${1-1}.silver.musta.ch
@@ -40,8 +38,6 @@ function gold () { # takes an argument (default is 1) for which machine to go in
 
 export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
-
-# use version of emacs from brew cask install 
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-
-alias airplus="cd ~/repos/data/airflow/teams/plus/"
+# command for vertical output on presto queries 
+# pv is inline queries
+alias pv="presto --output-format VERTICAL --execute"

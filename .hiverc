@@ -1,0 +1,1 @@
+SET mapred.job.queue.name=homes.plus.ds.adhoc;

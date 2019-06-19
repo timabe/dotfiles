@@ -26,8 +26,6 @@ fi
 
 ln -s dotfiles/.bashrc_custom .
 
-if [ -f .emacs.d ]; then
-  mv .emacs.d .emacs.d~
+if [ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]; then
+    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 fi
-
-ln -s dotfiles/.emacs.d .
