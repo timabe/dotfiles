@@ -36,8 +36,10 @@ function gold () { # takes an argument (default is 1) for which machine to go in
 	ssh -o SendEnv=LC_CLUSTER gw${1-1}.gold.musta.ch
 }
 
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # command for vertical output on presto queries 
 # pv is inline queries
 alias pv="presto --output-format VERTICAL --execute"
+alias hive="hive --emr-cluster homes-shared-prod-ap --hive-cluster silver"
+# silence the prompt about zsh being the new default shell after catalina
+export BASH_SILENCE_DEPRECATION_WARNING=1
