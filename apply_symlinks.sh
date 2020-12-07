@@ -8,6 +8,12 @@ fi
 
 ln -s dotfiles/.screenrc .
 
+if [ -f .tmux.conf ]; then
+  mv .tmux.conf .tmux.conf~
+fi
+
+ln -s dotfiles/.tmux.conf .
+
 if [ -f .bash_profile ]; then
   mv .bash_profile .bash_profile~
 fi

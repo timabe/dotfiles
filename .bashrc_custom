@@ -2,8 +2,6 @@
 function parse_git_branch () {
        git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-
-
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 ORANGE="\[\033[38;5;9m\]"
@@ -15,26 +13,10 @@ unamestr=`uname`
 
 # Make prompt informative and based on machine and cluster
 if [[ "$unamestr" != 'Linux' ]]; then
-	PS1="$CYAN\u$NO_COLOUR:\w$RED\$(parse_git_branch)$NO_COLOUR\$ "
+	PS1="$CYAN\u$YELLOW:\w$RED\$(parse_git_branch)$NO_COLOUR\$ "
 else
-	if [[ $LC_CLUSTER == 'gold' ]]; then
-		PS1="$ORANGE\u$YELLOW{$LC_CLUSTER}:\w$GREEN\$(parse_git_branch)$NO_COLOUR\$ "
-	else
-		PS1="$ORANGE\u$WHITE{$LC_CLUSTER}:\w$GREEN\$(parse_git_branch)$NO_COLOUR\$ "
-	fi
+	PS1="$ORANGE\u$YELLOW:\w$GREEN\$(parse_git_branch)$NO_COLOUR\$ "
 fi
-
-exists() { type -t "$1" > /dev/null 2>&1; }
-
-function silver () { # takes an argument (default is 1) for which machine to go into
-	export LC_CLUSTER=silver; # helpful to keep track of which cluster you're doing work on
-	ssh -o SendEnv=LC_CLUSTER gw${1-1}.silver.musta.ch
-}
-
-function gold () { # takes an argument (default is 1) for which machine to go into
-	export LC_CLUSTER=gold; # helpful to keep track of which cluster you're doing work on
-	ssh -o SendEnv=LC_CLUSTER gw${1-1}.gold.musta.ch
-}
 
 
 # command for vertical output on presto queries 
@@ -43,3 +25,23 @@ alias pv="presto --output-format VERTICAL --execute"
 alias hive="hive --emr-cluster homes-shared-prod-ap --hive-cluster silver"
 # silence the prompt about zsh being the new default shell after catalina
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+function tm() {
+	session="tim"
+
+
+	# create a new tmux session, starting vim from a saved session in the new window
+	tmux new-session -d -s $session 
+
+
+	# create a new window called hive
+	tmux new-window -t $session:1 -n hive
+	tmux send-keys "hive" Enter
+
+	# create a new window called presto
+	tmux new-window -t $session:2 -n presto
+	tmux send-keys "presto" Enter
+
+	# Finished setup, attach to the tmux session!
+	tmux attach-session -t $session	
+}
